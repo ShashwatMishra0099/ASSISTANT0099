@@ -1,3 +1,0 @@
-heroku buildpacks:set heroku/python
-  git push heroku master
-
