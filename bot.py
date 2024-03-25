@@ -51,6 +51,10 @@ def message_handler(update: Update, context: CallbackContext) -> None:
 # Function to handle errors
 def error(update: Update, context: CallbackContext) -> None:
     logger.error(f'Update {update} caused error {context.error}')
+    # Check if the update object has 'from_user' attribute before accessing it
+    if hasattr(update, 'from_user'):
+        user_id = update.from_user.id
+        logger.error(f'Error occurred for user {user_id}')
 
 def main() -> None:
     # Create the Updater and pass the bot token
